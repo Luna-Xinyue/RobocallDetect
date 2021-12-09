@@ -16,6 +16,7 @@ from sklearn.neural_network import MLPClassifier
 
 
 logging.basicConfig(filename="SMOTEdt-n.log", level=logging.INFO)
+#change this to reflect the path to your dataset
 dataset = pd.read_csv("/Users/xinyue/CS 6333 Mobile and IoT Security/Project/fraud_call.file",
                     sep='\t',names=['label','content'])
 # Normal: 5287; Fraud: 638 Total: 5925
@@ -55,6 +56,7 @@ while sampleStrat < 0.95:
 
     X_train, X_test, y_train, y_test = train_test_split(X_res, y_res, test_size = 0.2, random_state = 0)
 
+    #classifierDT = LogisticRegression(penalty='l2', fit_intercept=True, C=1)
     classifierDT = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
     # classifierDT = RandomForestClassifier(n_estimators = 300, criterion = 'entropy', random_state = 0)
     # classifierDT = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(128,64), random_state=1)
