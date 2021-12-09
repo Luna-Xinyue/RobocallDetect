@@ -41,7 +41,7 @@ class GetModel:
         _, x_train, x_test, y_train, y_test = self.getData()
         F1_scoreBest = 0
         for epoch in range(self.trainEpoch):
-            classifier = RandomForestClassifier(n_estimators = 300, criterion = 'entropy', random_state = 0)
+            classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
             classifier.fit(x_train, y_train)
             y_pred_RF = classifier.predict(x_test)
             cm = confusion_matrix(y_test, y_pred_RF)
